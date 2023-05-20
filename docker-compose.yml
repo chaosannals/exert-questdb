@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  exert-questdb-server:
+    container_name: exert-questdb-server
+    image: questdb/questdb:7.1.3
+    restart: always
+    ports:
+      - 9000:9000
+      - 9009:9009
+      - 8812:8812
+    # volumes:
+
+    networks: 
+        - exert-questdb-net
+
+
+networks: 
+  exert-questdb-net:
+    name: exert-questdb-net
+    driver: bridge
